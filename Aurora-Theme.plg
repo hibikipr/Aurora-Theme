@@ -3,7 +3,7 @@
 
 <PLUGIN name="Aurora-Theme"
         author="Tunefish"
-        version="2026.10.23.0946"
+        version="2026.10.23.1026"
         launch="Settings/AuroraThemeSettings"
         pluginURL="https://raw.githubusercontent.com/hibikipr/Aurora-Theme/release/Aurora-Theme.plg"
         support="https://github.com/hibikipr/Aurora-Theme/issues"
@@ -11,7 +11,8 @@
         min="7.2.0">
 
 <CHANGES>
-###2026.10.23.0946
+###2026.10.23.1026
+- Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
 - Page enhancements: brand and server card in the sidebar, slim top bar, page headings, status pills, Docker summary and filters.
@@ -23892,14 +23893,26 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     letter-spacing: 0.02em;
 }
 
-/* Server name: Temple's gold wordmark with its glow. */
-:root:root:is(.Theme--black, .Theme--white) :is(.nav-tile, #header .logo, .tp-sb-name) {
+/* Server name: Temple's gold wordmark with its glow, in the header's profile and on the server
+   card. (Not .nav-tile: in Unraid that is the whole menu.) */
+:root:root:is(.Theme--black, .Theme--white) :is(#UserProfile span.text-header-text-primary, .tp-server-card b) {
     font-family: var(--tw-font-display);
     font-weight: 400;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #e8c36a;
     text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
+}
+
+/* Day: the top bar is light, so its name takes the deeper gold; the sidebar card stays dark. */
+:root:root.Theme--white #UserProfile span.text-header-text-primary {
+    color: #8a6420;
+    text-shadow: none;
+}
+
+/* Unraid's red-to-orange header logo, turned to the saber blue. */
+:root:root:is(.Theme--black, .Theme--white) #header a[href="https://unraid.net"] img {
+    filter: hue-rotate(190deg) saturate(1.15) brightness(1.1);
 }
 
 /* Monospace like townsville.cc's labels: logs, code, terminals, IDs. */
@@ -23949,18 +23962,38 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     color: var(--tw-gold);
 }
 
-/* Usage bars by load: blue to teal, then gold, then red. */
-:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span {
+/* Usage bars by load: blue to teal, then gold, then red. Only the first span is the bar; the
+   second holds the figure, which stays on Aurora's plain background. */
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:first-child {
     background: var(--tp-gradient);
 }
 
-:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:is(.orange, .yellow) {
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:first-child:is(.orange, .yellow) {
     background: var(--tw-gold);
 }
 
-:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:is(.red, .redbar) {
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:first-child:is(.red, .redbar) {
     background: var(--tw-red);
 }
+
+/* Dashboard CPU and network graphs: their canvases took the page background and showed as
+   black holes inside the cards; they sit on the card's subtle tone instead. */
+:root:root:is(.Theme--black, .Theme--white) table.dashboard canvas {
+    background-color: var(--tp-subtle) !important;
+    border-radius: var(--tp-r-sm);
+}
+
+/* Unraid colours a light load with an inline olive green; this is the saber green instead. */
+:root:root:is(.Theme--black, .Theme--white) .cpu[style*="rgb(79, 138, 16)"] {
+    color: var(--tw-green) !important;
+}
+
+/* Status orbs (share, disk and container states) on the saber palette. */
+:root:root:is(.Theme--black, .Theme--white) .green-orb { color: var(--tw-green); }
+:root:root:is(.Theme--black, .Theme--white) .yellow-orb { color: var(--tw-gold); }
+:root:root:is(.Theme--black, .Theme--white) .red-orb { color: var(--tw-red); }
+:root:root:is(.Theme--black, .Theme--white) .blue-orb { color: var(--tw-blue); }
+:root:root:is(.Theme--black, .Theme--white) .grey-orb { color: var(--tp-muted); }
 
 /* Status colours on the saber palette. */
 :root:root:is(.Theme--black, .Theme--white) :is(.green, .green-text) { color: var(--tw-green); }
@@ -23999,7 +24032,7 @@ cat > /boot/config/plugins/Aurora-Theme/stats.cron <<'AURORA_THEME_EOF'
 AURORA_THEME_EOF
 /usr/bin/php /usr/local/emhttp/plugins/Aurora-Theme/scripts/schedule.php
 echo ""
-echo "Aurora-Theme 2026.10.23.0946 is installed."
+echo "Aurora-Theme 2026.10.23.1026 is installed."
 echo "Settings: Settings > User Utilities > Aurora Theme"
 echo ""
 ]]>
