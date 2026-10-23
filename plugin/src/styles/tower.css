@@ -245,6 +245,12 @@
     text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
 }
 
+/* Day: the top bar is light, so its name takes the deeper gold; the sidebar card stays dark. */
+:root:root.Theme--white #UserProfile span.text-header-text-primary {
+    color: #8a6420;
+    text-shadow: none;
+}
+
 /* Unraid's red-to-orange header logo, turned to the saber blue. */
 :root:root:is(.Theme--black, .Theme--white) #header a[href="https://unraid.net"] img {
     filter: hue-rotate(190deg) saturate(1.15) brightness(1.1);
