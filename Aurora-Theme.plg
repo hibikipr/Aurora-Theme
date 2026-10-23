@@ -3,7 +3,7 @@
 
 <PLUGIN name="Aurora-Theme"
         author="Tunefish"
-        version="2026.10.23.1026"
+        version="2026.10.23.1032"
         launch="Settings/AuroraThemeSettings"
         pluginURL="https://raw.githubusercontent.com/hibikipr/Aurora-Theme/release/Aurora-Theme.plg"
         support="https://github.com/hibikipr/Aurora-Theme/issues"
@@ -11,7 +11,7 @@
         min="7.2.0">
 
 <CHANGES>
-###2026.10.23.1026
+###2026.10.23.1032
 - Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
@@ -23894,11 +23894,12 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
 }
 
 /* Server name: Temple's gold wordmark with its glow, in the header's profile and on the server
-   card. (Not .nav-tile: in Unraid that is the whole menu.) */
+   card. (Not .nav-tile: in Unraid that is the whole menu.) The sidebar layout sets the profile
+   name's font through an ID-and-nth-child selector, so the type here is !important. */
 :root:root:is(.Theme--black, .Theme--white) :is(#UserProfile span.text-header-text-primary, .tp-server-card b) {
-    font-family: var(--tw-font-display);
-    font-weight: 400;
-    letter-spacing: 0.14em;
+    font-family: var(--tw-font-display) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.14em !important;
     text-transform: uppercase;
     color: #e8c36a;
     text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
@@ -23995,6 +23996,18 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
 :root:root:is(.Theme--black, .Theme--white) .blue-orb { color: var(--tw-blue); }
 :root:root:is(.Theme--black, .Theme--white) .grey-orb { color: var(--tp-muted); }
 
+/* Aurora gives the Main tab's device and USB tables their own green and yellow orbs with a
+   glow (theme.css, nested under :root); these match its selector one step more specifically. */
+:root:root:is(.Theme--black, .Theme--white) :is(table.disk_status, table.usb_mounts) i.orb.green-orb {
+    color: var(--tw-green);
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--tw-green) 60%, transparent));
+}
+
+:root:root:is(.Theme--black, .Theme--white) :is(table.disk_status, table.usb_mounts) i.orb.yellow-orb {
+    color: var(--tw-gold);
+    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--tw-gold) 55%, transparent));
+}
+
 /* Status colours on the saber palette. */
 :root:root:is(.Theme--black, .Theme--white) :is(.green, .green-text) { color: var(--tw-green); }
 :root:root:is(.Theme--black, .Theme--white) :is(.red, .red-text) { color: var(--tw-red); }
@@ -24032,7 +24045,7 @@ cat > /boot/config/plugins/Aurora-Theme/stats.cron <<'AURORA_THEME_EOF'
 AURORA_THEME_EOF
 /usr/bin/php /usr/local/emhttp/plugins/Aurora-Theme/scripts/schedule.php
 echo ""
-echo "Aurora-Theme 2026.10.23.1026 is installed."
+echo "Aurora-Theme 2026.10.23.1032 is installed."
 echo "Settings: Settings > User Utilities > Aurora Theme"
 echo ""
 ]]>
