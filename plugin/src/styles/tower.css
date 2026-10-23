@@ -252,6 +252,18 @@
     text-shadow: none;
 }
 
+/* Sidebar layout: Aurora fixes Unraid's logo and version over the top of the sidebar with no
+   background, so the menu showed through it as it scrolled. The block takes the sidebar's
+   colour down to where the menu's content starts (#menu's 12rem top padding), fading out at
+   the bottom, and stops 1px short so the sidebar's right border stays visible. */
+@media (min-width: 1024px) {
+    :root:root.tp-sidebar.Theme--nav-top #header unraid-header-os-version {
+        width: calc(var(--tp-sidebar-width) - 1px);
+        height: 12rem;
+        background: linear-gradient(var(--header-background-color) calc(100% - 1.6rem), transparent);
+    }
+}
+
 /* Unraid's red-to-orange header logo, turned to the saber blue. */
 :root:root:is(.Theme--black, .Theme--white) #header a[href="https://unraid.net"] img {
     filter: hue-rotate(190deg) saturate(1.15) brightness(1.1);
