@@ -18,6 +18,8 @@ import sys
 root = pathlib.Path(__file__).resolve().parent.parent
 PLG = "Aurora-Theme.plg"
 BRANCH = "release"
+# Named for gh, which otherwise picks the "upstream" remote (Tunefish92) as its default repo.
+REPO = "hibikipr/Aurora-Theme"
 
 
 def git(*args, text_input=None):
@@ -43,7 +45,7 @@ git("commit", "-m", f"Release {version}" + (f"\n\n{trailer}" if trailer else "")
 git("push", "origin", "main")
 
 tag = f"v{version}"
-subprocess.run(["gh", "release", "create", tag, PLG, "--target", "main",
+subprocess.run(["gh", "release", "create", tag, PLG, "-R", REPO, "--target", "main",
                 "--title", f"Aurora Theme {version}", "--notes-file", str(notes)], cwd=root, check=True)
 
 # The "release" branch: one commit per release, holding only the released .plg. Built with git

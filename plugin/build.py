@@ -124,6 +124,7 @@ plg = f"""<?xml version='1.0' standalone='yes'?>
 
 <CHANGES>
 ###{version}
+- Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
 - Page enhancements: brand and server card in the sidebar, slim top bar, page headings, status pills, Docker summary and filters.
