@@ -311,6 +311,25 @@
     background: var(--tw-red);
 }
 
+/* Dashboard CPU and network graphs: their canvases took the page background and showed as
+   black holes inside the cards; they sit on the card's subtle tone instead. */
+:root:root:is(.Theme--black, .Theme--white) table.dashboard canvas {
+    background-color: var(--tp-subtle) !important;
+    border-radius: var(--tp-r-sm);
+}
+
+/* Unraid colours a light load with an inline olive green; this is the saber green instead. */
+:root:root:is(.Theme--black, .Theme--white) .cpu[style*="rgb(79, 138, 16)"] {
+    color: var(--tw-green) !important;
+}
+
+/* Status orbs (share, disk and container states) on the saber palette. */
+:root:root:is(.Theme--black, .Theme--white) .green-orb { color: var(--tw-green); }
+:root:root:is(.Theme--black, .Theme--white) .yellow-orb { color: var(--tw-gold); }
+:root:root:is(.Theme--black, .Theme--white) .red-orb { color: var(--tw-red); }
+:root:root:is(.Theme--black, .Theme--white) .blue-orb { color: var(--tw-blue); }
+:root:root:is(.Theme--black, .Theme--white) .grey-orb { color: var(--tp-muted); }
+
 /* Status colours on the saber palette. */
 :root:root:is(.Theme--black, .Theme--white) :is(.green, .green-text) { color: var(--tw-green); }
 :root:root:is(.Theme--black, .Theme--white) :is(.red, .red-text) { color: var(--tw-red); }
