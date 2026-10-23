@@ -29,6 +29,46 @@ A modern theme plugin for the Unraid webGUI: new colours and fonts, an optional 
 | --- | --- |
 | ![Diagnostics tool page with the collected files as cards](docs/screenshots/tools.png) | ![Login page with a glass card on an aurora background](docs/screenshots/login.png) |
 
+## Townsville edition
+
+This fork dresses Aurora in the townsville.cc palette for unraid.townsville.cc (tower.local): saber blue and teal on deep navy, gold for the server name and warnings, Temple's rings behind every page, and Michroma, Chakra Petch and JetBrains Mono, bundled. Night is Display Settings → Black, Day is White.
+
+Install it from this fork's releases rather than Tunefish92's:
+
+```
+https://github.com/hibikipr/Aurora-Theme/releases/latest/download/Aurora-Theme.plg
+```
+
+What differs from upstream, so merges stay small:
+
+- `plugin/src/styles/tower.css` and the new fonts in `plugin/src/fonts/` (files upstream doesn't have)
+- one `<link>` in `plugin/src/AuroraTheme.page`, after `theme.css`
+- a Tower block at the end of `plugin/src/styles/login.css`, and the Michroma placeholder in `plugin/src/include/login-head.php`
+- `GITHUB_REPO` in `plugin/build.py`, so updates and issues come here
+
+### Keeping up with Aurora
+
+`main` is the Townsville line; Aurora's changes are merged into it, never rebased. Once per clone:
+
+```
+git remote add upstream https://github.com/Tunefish92/Aurora-Theme.git
+git config merge.ours.driver true
+```
+
+The second line enables the rule in `.gitattributes` that keeps our `Aurora-Theme.plg` on a merge, since it is generated and would otherwise conflict on every upstream release.
+
+For each Aurora release (Watch → Custom → Releases on Tunefish92/Aurora-Theme sends a notice):
+
+```
+git fetch upstream
+git switch main
+git merge upstream/main
+python3 plugin/build.py
+python3 plugin/release.py notes.md
+```
+
+Resolve any conflicts in the files listed above, keeping both sides; `GITHUB_REPO` stays `hibikipr/Aurora-Theme`. `release.py` builds, tags, publishes the GitHub release and updates the `release` branch that Unraid checks for updates.
+
 ## Install
 
 In Unraid, go to **Plugins → Install Plugin**, paste this address and click **Install**:
@@ -96,6 +136,6 @@ I believe AI is a useful tool for learning, experimenting, and bringing ideas to
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). The bundled fonts, Inter and Space Grotesk, are under the SIL Open Font License; their licence texts are in `plugin/src/fonts/`.
+MIT, see [LICENSE](LICENSE). The bundled fonts, Inter, Space Grotesk, Michroma, Chakra Petch and JetBrains Mono, are under the SIL Open Font License; their licence texts are in `plugin/src/fonts/`.
 
 Theme by [Tunefish](https://github.com/Tunefish92).
