@@ -1,6 +1,6 @@
 /* Aurora Theme: login page.
    include/login-head.php writes this into Unraid's login page (files below /plugins are not
-   served before login), with the two font placeholders below replaced by the fonts as data URLs.
+   served before login), with the font placeholders below replaced by the fonts as data URLs.
    Unraid's own login styles come first in the page; these override them. Sizes are in px:
    the login page keeps the browser's 16px rem, unlike the rest of the web interface. */
 @font-face {
@@ -370,4 +370,75 @@ body::after {
     #login [type=password] {
         font-size: 16px;
     }
+}
+
+/* ---- Tower: the townsville.cc palette, as in styles/tower.css. Saber blue and teal glows on the
+   deep navy, Temple's rings behind the card, and the server name as a gold wordmark in Michroma
+   (include/login-head.php fills its placeholder like the two above). */
+@font-face {
+    font-family: "Michroma";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("@@MICHROMA@@") format("woff2");
+}
+
+:root {
+    --tp-bg: #070a18;
+    --tp-card: rgba(14, 20, 44, 0.78);
+    --tp-text: #e6e9f5;
+    --tp-muted: #8a93b3;
+    --tp-border: rgba(255, 255, 255, 0.08);
+    --tp-primary: #4cc9ff;
+    --tp-primary-ii: #4ce6d2;
+    --tp-primary-soft: rgba(76, 201, 255, 0.18);
+    --tp-danger: #ff4d5e;
+    --tp-danger-soft: rgba(255, 77, 94, 0.13);
+    --tp-success: #5cff7a;
+    --tp-success-soft: rgba(92, 255, 122, 0.12);
+    --tp-aurora-a: rgba(76, 201, 255, 0.22);
+    --tp-aurora-b: rgba(92, 255, 122, 0.10);
+    --tp-aurora-c: rgba(255, 77, 94, 0.12);
+    --tw-gold: #e8c36a;
+    --tw-ring: rgba(120, 140, 255, 0.06);
+}
+
+:root.Theme--white,
+:root.Theme--azure {
+    --tp-bg: #eef1f8;
+    --tp-card: rgba(255, 255, 255, 0.84);
+    --tp-text: #0c1230;
+    --tp-muted: #586283;
+    --tp-primary: #0b8fd6;
+    --tp-primary-ii: #0ea597;
+    --tp-primary-soft: rgba(11, 143, 214, 0.12);
+    --tp-danger: #d92d42;
+    --tp-danger-soft: rgba(217, 45, 66, 0.08);
+    --tp-success: #13a34a;
+    --tp-aurora-a: rgba(11, 143, 214, 0.16);
+    --tp-aurora-b: rgba(19, 163, 74, 0.08);
+    --tp-aurora-c: rgba(217, 45, 66, 0.07);
+    --tw-gold: #a9802f;
+    --tw-ring: rgba(40, 60, 160, 0.05);
+}
+
+body::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: repeating-radial-gradient(circle at 50% 45%, transparent 0 70px, var(--tw-ring) 70px 72px);
+    content: "";
+}
+
+#login h1 {
+    font: 400 22px/1.3 "Michroma", "Space Grotesk", "Inter", sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tw-gold);
+    text-shadow: 0 0 14px color-mix(in srgb, var(--tw-gold) 35%, transparent);
+}
+
+#login .form button:hover {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent), 0 0 18px -2px var(--tp-primary);
 }

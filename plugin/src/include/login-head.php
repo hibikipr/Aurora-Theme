@@ -30,8 +30,8 @@
         return $data === false ? '' : 'data:font/woff2;base64,' . base64_encode($data);
     };
     $css = str_replace(
-        ['@@INTER@@', '@@GROTESK@@'],
-        [$font('inter-latin-wght-normal.woff2'), $font('space-grotesk-latin-wght-normal.woff2')],
+        ['@@INTER@@', '@@GROTESK@@', '@@MICHROMA@@'],
+        [$font('inter-latin-wght-normal.woff2'), $font('space-grotesk-latin-wght-normal.woff2'), $font('michroma-latin-400-normal.woff2')],
         $css
     );
     echo '<style id="aurora-login">' . "\n" . str_ireplace('</style', '<\/style', $css) . "\n</style>\n";

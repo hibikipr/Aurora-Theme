@@ -29,6 +29,7 @@ if (isset($themeHelper) && method_exists($themeHelper, 'isTopNavTheme') && !$the
 <?php if (!$auroraOff): ?>
 <?php if (($aurora['theme'] ?? 'yes') == 'yes'): ?>
 <link type="text/css" rel="stylesheet" href="<?php autov('/plugins/Aurora-Theme/styles/theme.css') ?>">
+<link type="text/css" rel="stylesheet" href="<?php autov('/plugins/Aurora-Theme/styles/tower.css') ?>">
 <?php
 // Display Settings, header custom text, secondary text and background colours: the theme sets
 // Unraid's header variables itself, so the chosen colours are handed to it under its own names.

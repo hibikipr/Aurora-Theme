@@ -1,0 +1,324 @@
+/* Tower: the townsville.cc palette for unraid.townsville.cc (tower.local).
+   Loaded by AuroraTheme.page right after theme.css, on every page while the theme is on, so the
+   accent colour and font settings and custom.css, which come later, still override it.
+   Palette and type follow townsville.cc (saber colours, gold, Michroma / Chakra Petch /
+   JetBrains Mono) and Temple (gold glowing wordmark, concentric rings).
+   Fonts, bundled with the plugin like Inter (no external requests), all under the SIL Open Font
+   License (see fonts/*-LICENSE.txt). Michroma and JetBrains Mono are latin only. */
+@font-face {
+    font-family: "Michroma";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/michroma-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-400-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-500-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-600-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-700-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-ext-400-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-ext-500-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-ext-600-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/plugins/Aurora-Theme/fonts/chakra-petch-latin-ext-700-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---- Night (Display Settings → Black) */
+:root:root.Theme--black {
+    --tw-gold: #e8c36a;
+    --tw-blue: #4cc9ff;
+    --tw-teal: #4ce6d2;
+    --tw-green: #5cff7a;
+    --tw-pink: #ff5fb8;
+    --tw-red: #ff4d5e;
+    --tw-purple: #b07cff;
+    --tw-ring: rgba(120, 140, 255, 0.05);
+    --tw-glow-a: rgba(76, 201, 255, 0.14);
+    --tw-glow-b: rgba(255, 77, 94, 0.07);
+    --tw-glow-c: rgba(92, 255, 122, 0.06);
+
+    --tp-bg: #070a18;
+    --tp-elevated: #0e1430;
+    --tp-subtle: #121a3c;
+    --tp-text: #e6e9f5;
+    --tp-muted: #8a93b3;
+    --tp-border: #1d2754;
+    --tp-input-border: #2a3772;
+    --tp-primary: var(--tw-blue);
+    --tp-primary-ii: var(--tw-teal);
+    --tp-primary-soft: rgba(76, 201, 255, 0.14);
+    --tp-tab-active: #182252;
+    --tp-primary-text: #04101c;
+    --tp-header-bg: var(--tp-custom-header-bg, #050817);
+    --tp-header-text: var(--tp-custom-header-text, #e6e9f5);
+    --tp-header-muted: var(--tp-custom-header-muted, #8e9ad0);
+    --tp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --tp-shadow-lg: 0 32px 70px -26px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(76, 201, 255, 0.04);
+    --tp-success: var(--tw-green);
+    --tp-success-bg: rgba(92, 255, 122, 0.12);
+    --tp-success-text: #8dffa6;
+    --tp-danger: var(--tw-red);
+    --tp-danger-soft: rgba(255, 77, 94, 0.13);
+    --tp-warn-bg: rgba(232, 195, 106, 0.14);
+    --tp-warn-text: var(--tw-gold);
+    --tp-neutral-bg: #1d2754;
+    --tp-neutral-text: #c3c9dd;
+
+    --tp-hsl-surface: 229 55% 12%;
+    --tp-hsl-text: 229 47% 93%;
+    --tp-hsl-subtle: 229 54% 15%;
+    --tp-hsl-muted: 227 20% 62%;
+    --tp-hsl-border: 229 49% 22%;
+    --tp-hsl-input: 228 46% 31%;
+    --tp-hsl-primary: 198 100% 65%;
+    --tp-hsl-primary-text: 210 75% 6%;
+}
+
+/* ---- Day (Display Settings → White) */
+:root:root.Theme--white {
+    --tw-gold: #a9802f;
+    --tw-blue: #0b8fd6;
+    --tw-teal: #0ea597;
+    --tw-green: #13a34a;
+    --tw-pink: #d63d92;
+    --tw-red: #d92d42;
+    --tw-purple: #7c4fe0;
+    --tw-ring: rgba(40, 60, 160, 0.045);
+    --tw-glow-a: rgba(11, 143, 214, 0.10);
+    --tw-glow-b: rgba(217, 45, 66, 0.05);
+    --tw-glow-c: rgba(19, 163, 74, 0.05);
+
+    --tp-bg: #eef1f8;
+    --tp-elevated: #ffffff;
+    --tp-subtle: #e8ecf6;
+    --tp-text: #0c1230;
+    --tp-muted: #586283;
+    --tp-border: #dce1ee;
+    --tp-input-border: #c9d0e3;
+    --tp-primary: var(--tw-blue);
+    --tp-primary-ii: var(--tw-teal);
+    --tp-primary-soft: rgba(11, 143, 214, 0.10);
+    --tp-tab-active: #ffffff;
+    --tp-primary-text: #ffffff;
+    --tp-header-bg: var(--tp-custom-header-bg, #070a18);
+    --tp-header-text: var(--tp-custom-header-text, #e6e9f5);
+    --tp-header-muted: var(--tp-custom-header-muted, #8e9ad0);
+    --tp-success: var(--tw-green);
+    --tp-success-bg: #dcf7e5;
+    --tp-success-text: #0d6b31;
+    --tp-danger: var(--tw-red);
+    --tp-danger-soft: rgba(217, 45, 66, 0.08);
+    --tp-warn-bg: #f8eed3;
+    --tp-warn-text: #8a6420;
+
+    --tp-hsl-surface: 0 0% 100%;
+    --tp-hsl-text: 231 60% 12%;
+    --tp-hsl-subtle: 223 45% 94%;
+    --tp-hsl-muted: 225 19% 43%;
+    --tp-hsl-border: 224 34% 90%;
+    --tp-hsl-input: 224 32% 84%;
+    --tp-hsl-primary: 201 90% 44%;
+    --tp-hsl-primary-text: 0 0% 100%;
+}
+
+/* ---- Shared: type, shape, glow */
+:root:root:is(.Theme--black, .Theme--white) {
+    --tw-font-display: "Michroma", "Space Grotesk", system-ui, sans-serif;
+    --tw-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --tp-font-body: "Chakra Petch", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --tp-font-heading: "Chakra Petch", "Space Grotesk", var(--tp-font-body);
+    --tp-gradient: linear-gradient(135deg, var(--tw-blue), var(--tw-teal));
+    --tp-r-sm: 8px;
+    --tp-r-md: 10px;
+    --tw-saber: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent),
+                0 0 16px -2px color-mix(in srgb, var(--tp-primary) 55%, transparent);
+
+    --tp-log-error: var(--tw-red);
+    --tp-log-warn: var(--tw-gold);
+    --tp-log-system: var(--tw-blue);
+    --tp-log-array: var(--tw-green);
+    --tp-log-login: var(--tw-purple);
+
+    accent-color: var(--tp-primary);
+}
+
+/* Townsville's three glows with Temple's rings over them, fixed behind every page. */
+:root:root:is(.Theme--black, .Theme--white) body {
+    background-color: var(--tp-bg);
+    background-image:
+        radial-gradient(1200px 700px at 85% -10%, var(--tw-glow-a), transparent 60%),
+        radial-gradient(900px 600px at -10% 40%, var(--tw-glow-b), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, var(--tw-glow-c), transparent 60%);
+    background-attachment: fixed;
+}
+
+:root:root:is(.Theme--black, .Theme--white) body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: repeating-radial-gradient(circle at 50% 40%, transparent 0 70px, var(--tw-ring) 70px 72px);
+}
+
+/* Headings: Michroma for page titles, Chakra Petch for the rest. */
+:root:root:is(.Theme--black, .Theme--white) :is(h1, h2, .title .left, .tp-page-title) {
+    font-family: var(--tw-font-display);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+}
+
+:root:root:is(.Theme--black, .Theme--white) :is(h3, h4) {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Server name: Temple's gold wordmark with its glow. */
+:root:root:is(.Theme--black, .Theme--white) :is(.nav-tile, #header .logo, .tp-sb-name) {
+    font-family: var(--tw-font-display);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #e8c36a;
+    text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
+}
+
+/* Monospace like townsville.cc's labels: logs, code, terminals, IDs. */
+:root:root:is(.Theme--black, .Theme--white) :is(pre, code, kbd, samp, tt, textarea.code, .CodeMirror, #log, .log, .docker_id) {
+    font-family: var(--tw-font-mono);
+}
+
+/* Small caps labels, as on the townsville.cc cards. */
+:root:root:is(.Theme--black, .Theme--white) :is(table.unraid thead td, table.tablesorter thead th, table.dashboard tr.header td, .tp-summary-label) {
+    font-family: var(--tw-font-mono);
+    font-size: 0.86em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Navigation: the active tab gets a saber underline. */
+:root:root:is(.Theme--black, .Theme--white) .nav-item.active a,
+:root:root:is(.Theme--black, .Theme--white) .nav-item a[aria-current="page"] {
+    color: var(--tp-header-text);
+    box-shadow: inset 0 -2px 0 var(--tw-blue), 0 6px 14px -8px var(--tw-blue);
+}
+
+:root:root:is(.Theme--black, .Theme--white) .nav-item a:hover {
+    color: #e8c36a;
+}
+
+/* Cards light up their edge on hover, like Temple's cards. */
+:root:root:is(.Theme--black, .Theme--white) table.dashboard > tbody {
+    transition: border-color 0.3s var(--tp-ease), box-shadow 0.3s var(--tp-ease);
+}
+
+:root:root:is(.Theme--black, .Theme--white) table.dashboard > tbody:hover {
+    border-color: color-mix(in srgb, var(--tp-primary) 45%, var(--tp-border));
+}
+
+/* Buttons ignite on hover and focus. */
+:root:root:is(.Theme--black, .Theme--white) :is(input[type="button"], input[type="submit"], button, a.button):not(:disabled):is(:hover, :focus-visible) {
+    box-shadow: var(--tw-saber);
+}
+
+:root:root:is(.Theme--black, .Theme--white) :focus-visible {
+    outline: 2px solid var(--tp-primary);
+    outline-offset: 2px;
+}
+
+:root:root:is(.Theme--black, .Theme--white) a:hover {
+    color: var(--tw-gold);
+}
+
+/* Usage bars by load: blue to teal, then gold, then red. */
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span {
+    background: var(--tp-gradient);
+}
+
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:is(.orange, .yellow) {
+    background: var(--tw-gold);
+}
+
+:root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:is(.red, .redbar) {
+    background: var(--tw-red);
+}
+
+/* Status colours on the saber palette. */
+:root:root:is(.Theme--black, .Theme--white) :is(.green, .green-text) { color: var(--tw-green); }
+:root:root:is(.Theme--black, .Theme--white) :is(.red, .red-text) { color: var(--tw-red); }
+:root:root:is(.Theme--black, .Theme--white) :is(.orange, .orange-text, .yellow) { color: var(--tw-gold); }
+:root:root:is(.Theme--black, .Theme--white) :is(.blue, .blue-text) { color: var(--tw-blue); }
+
+/* Selection in gold, like the townsville.cc link hover. */
+:root:root:is(.Theme--black, .Theme--white) ::selection {
+    color: #070a18;
+    background-color: #e8c36a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root:root:is(.Theme--black, .Theme--white) * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
