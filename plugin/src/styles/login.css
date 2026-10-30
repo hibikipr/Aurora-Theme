@@ -442,3 +442,22 @@ body::before {
 #login .form button:hover {
     box-shadow: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent), 0 0 18px -2px var(--tp-primary);
 }
+
+/* Single sign-on (Unraid's SsoButton component, e.g. "Sign in with Pocket ID"): a secondary
+   button under Login. Each provider's colour comes inline from its SSO settings, so the look
+   here is !important. */
+#login .sso-provider-button {
+    border: 1px solid var(--tp-input-border) !important;
+    border-radius: 14px !important;
+    color: var(--tp-text) !important;
+    background: var(--tp-field) !important;
+    box-shadow: none !important;
+    font: 600 15px "Space Grotesk", "Inter", sans-serif !important;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#login .sso-provider-button:hover,
+#login .sso-provider-button:focus-visible {
+    border-color: var(--tp-primary) !important;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent), 0 0 18px -2px var(--tp-primary) !important;
+}
