@@ -367,6 +367,52 @@
 :root:root:is(.Theme--black, .Theme--white) :is(.orange, .orange-text, .yellow) { color: var(--tw-gold); }
 :root:root:is(.Theme--black, .Theme--white) :is(.blue, .blue-text) { color: var(--tw-blue); }
 
+/* Fix Common Problems: its exclusion column sits 540px in over a 600px float, which pushed the
+   field under the table, and Aurora's file tree makes each folder link a block, so the folder's
+   checkbox got a line of its own. The column now flows beside the table, each checkbox stays on
+   its folder's row, and the justified error cells read with normal word spacing. */
+:root:root:is(.Theme--black, .Theme--white) div:has(> #excludedFoldersList) {
+    margin-left: 0 !important;
+    display: flow-root;
+    padding-left: 2.4rem;
+}
+
+:root:root:is(.Theme--black, .Theme--white) #excludedPerms {
+    display: block;
+    width: 100%;
+    margin: 0.6rem 0;
+}
+
+:root:root:is(.Theme--black, .Theme--white) #excludedFoldersList {
+    margin: 0.8rem 0 0 !important;
+    width: auto !important;
+    max-height: 16rem !important;
+    overflow: auto !important;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--tp-border);
+    border-radius: var(--tp-r-sm);
+    background: var(--tp-subtle);
+}
+
+:root:root:is(.Theme--black, .Theme--white) ul.jqueryFileTree li:has(> input[type="checkbox"]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.4rem;
+}
+
+:root:root:is(.Theme--black, .Theme--white) ul.jqueryFileTree li:has(> input[type="checkbox"]) > a {
+    flex: 1;
+}
+
+:root:root:is(.Theme--black, .Theme--white) ul.jqueryFileTree li:has(> input[type="checkbox"]) > ul {
+    flex-basis: 100%;
+}
+
+:root:root:is(.Theme--black, .Theme--white) #settings td {
+    text-align: start !important;
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
