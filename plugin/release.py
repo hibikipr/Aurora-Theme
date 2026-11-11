@@ -28,6 +28,7 @@ REPO = "hibikipr/Aurora-Theme"
 
 
 def git(*args, text_input=None):
+    """Runs git in the repo and returns its output; a failing git command stops the release."""
     return subprocess.run(["git", *args], cwd=root, check=True, capture_output=True, text=True,
                           input=text_input).stdout.strip()
 
