@@ -69,6 +69,8 @@ python3 plugin/release.py notes.md
 
 Resolve any conflicts in the files listed above, keeping both sides; `GITHUB_REPO` stays `hibikipr/Aurora-Theme`. `release.py` builds, tags, publishes the GitHub release and updates the `release` branch that Unraid checks for updates.
 
+**Rule for `Aurora-Theme.plg` on a merge:** if it ever conflicts (for example the `merge.ours` driver is not set), keep this fork's own URLs and branch pointers (`hibikipr/Aurora-Theme`, the `release` branch) and take upstream's version and everything else. The file is generated, so afterwards run `python3 plugin/build.py` and never hand-edit it; the fork's `GITHUB_REPO` in `plugin/build.py` is the single source of those URLs.
+
 ## Install
 
 In Unraid, go to **Plugins → Install Plugin**, paste this address and click **Install**:
