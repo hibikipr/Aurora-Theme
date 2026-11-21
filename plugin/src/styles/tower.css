@@ -429,6 +429,17 @@
     overflow: hidden;
 }
 
+/* Sidebar layout: the logo and version ("UNRAID 7.4.1") are a fixed, transparent block over the
+   top of the sidebar, and the menu under it scrolls (it is taller than a short window, and it
+   has 120px of top padding to clear the logo only while it sits at the top). Scrolled, the
+   "Tower" card and the first menu items slid up under the logo and printed through the version.
+   Fading the menu out before it reaches the logo area keeps it clear at any scroll position,
+   and leaves the menu at the top untouched. */
+html.tp-sidebar #menu {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
