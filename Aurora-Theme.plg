@@ -3,7 +3,7 @@
 
 <PLUGIN name="Aurora-Theme"
         author="Tunefish"
-        version="2026.11.20.2308"
+        version="2026.11.20.2322"
         launch="Settings/AuroraThemeSettings"
         pluginURL="https://raw.githubusercontent.com/hibikipr/Aurora-Theme/release/Aurora-Theme.plg"
         support="https://github.com/hibikipr/Aurora-Theme/issues"
@@ -11,7 +11,7 @@
         min="7.2.0">
 
 <CHANGES>
-###2026.11.20.2308
+###2026.11.20.2322
 - Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
@@ -86,10 +86,10 @@ if [ -e /boot/config/plugins/$OLD.plg ] || [ -d /usr/local/emhttp/plugins/$OLD ]
   echo "Settings moved over from $OLD, which has been removed."
 fi
 old=$(sed -n 's/^[[:space:]]*version="\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme.plg 2>/dev/null | head -n 1)
-if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2308" ]]; then
+if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2322" ]]; then
   from=$(sed -n 's/.*"from":"\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme/updated.json 2>/dev/null)
   [[ "$from" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ ]] || from=$old
-  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2308" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
+  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2322" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
 fi
 cat > /usr/local/emhttp/plugins/Aurora-Theme/AuroraTheme.page <<'AURORA_THEME_EOF'
 Menu="Buttons"
@@ -362,7 +362,7 @@ if (in_array(rtrim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PAT
 <?php if ($auroraClasses): ?>
 <script>document.documentElement.classList.add(...<?= json_encode($auroraClasses) ?>);</script>
 <?php endif; ?>
-<?php if (substr('2026.11.20.2308', -4) === '-dev'): ?>
+<?php if (substr('2026.11.20.2322', -4) === '-dev'): ?>
 <?php // A dev build (version "...-dev", set by plugin/build.py) is installed: a "Dev" badge in the
       // top bar, linking to the settings, where the update channel goes back to stable. ?>
 <style id="aurora-dev-badge">
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var badge = document.createElement('a');
   badge.className = 'tp-dev-badge';
   badge.href = '/Settings/AuroraThemeSettings';
-  badge.title = 'Aurora Theme dev build 2026.11.20.2308: a test version, installed because the update channel is set to dev builds. Click to change it.';
+  badge.title = 'Aurora Theme dev build 2026.11.20.2322: a test version, installed because the update channel is set to dev builds. Click to change it.';
   badge.innerHTML = '<i aria-hidden="true"></i><span>Aurora</span><b>Dev</b>';
   // Where it goes: with the sidebar shown, on its own line under Unraid's version (the version
   // row has room for the version and its update notice only); otherwise in
@@ -19923,7 +19923,7 @@ body::after {
     --tp-muted: #8a93b3;
     --tp-border: rgba(255, 255, 255, 0.08);
     --tp-primary: #4cc9ff;
-    --tp-primary-ii: #4ce6d2;
+    --tp-primary-ii: #4cc9ff;
     --tp-primary-soft: rgba(76, 201, 255, 0.18);
     --tp-danger: #ff4d5e;
     --tp-danger-soft: rgba(255, 77, 94, 0.13);
@@ -19943,7 +19943,7 @@ body::after {
     --tp-text: #0c1230;
     --tp-muted: #586283;
     --tp-primary: #0b8fd6;
-    --tp-primary-ii: #0ea597;
+    --tp-primary-ii: #0b8fd6;
     --tp-primary-soft: rgba(11, 143, 214, 0.12);
     --tp-danger: #d92d42;
     --tp-danger-soft: rgba(217, 45, 66, 0.08);
@@ -27092,7 +27092,11 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tp-border: #1d2754;
     --tp-input-border: #2a3772;
     --tp-primary: var(--tw-blue);
-    --tp-primary-ii: var(--tw-teal);
+    /* Teal is an app identity colour in the Townsville design system, not UI chrome: its only UI
+       job was the second stop of the primary gradient, which is gone. The second accent follows
+       the primary, so the active sidebar icon, links, the active help button and the last
+       gradient stops are all saber blue. */
+    --tp-primary-ii: var(--tp-primary);
     --tp-primary-soft: rgba(76, 201, 255, 0.14);
     --tp-tab-active: #182252;
     --tp-primary-text: #06101f;
@@ -27143,7 +27147,7 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tp-border: #dce1ee;
     --tp-input-border: #c9d0e3;
     --tp-primary: var(--tw-blue);
-    --tp-primary-ii: var(--tw-teal);
+    --tp-primary-ii: var(--tp-primary);
     --tp-primary-soft: rgba(11, 143, 214, 0.10);
     --tp-tab-active: #ffffff;
     --tp-primary-text: #ffffff;
@@ -27230,7 +27234,7 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     letter-spacing: 0.14em !important;
     text-transform: uppercase;
     color: #e8c36a;
-    text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
+    text-shadow: 0 0 14px rgba(232, 195, 106, 0.45);
 }
 
 /* Day: the top bar is light, so its name takes the deeper gold; the sidebar card stays dark. */
@@ -27478,6 +27482,23 @@ html.tp-sidebar #menu {
     margin-left: 0.2rem;
     font-size: 0.9em;
     color: var(--tp-muted, inherit);
+}
+
+/* Flat saber blue, the rest of the way. --tp-gradient is flat above, but four rules in Aurora's
+   own sheets build their blue-to-teal gradient straight from --tp-primary and --tp-primary-ii
+   instead of using it, so the variable never reached them: the Dashboard's system usage bar,
+   the underline under the top-bar menu items, the active-item marker on the sidebar's left
+   edge, and the fill bars on the Stats page. They take the variable now. The teal itself stays
+   where it is a text or icon colour. */
+:root:root:is(.Theme--black, .Theme--white) table.dashboard .usage-disk.sys > span:first-child:not(.greenbar, .orangebar, .redbar, .graybar),
+:root:root:is(.Theme--black, .Theme--white) .nav-item::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-item:hover::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-item.active::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-user.show::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-user.show:hover::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-tile:not(.right) .nav-item::after,
+:root:root:is(.Theme--black, .Theme--white) .tfs-fill {
+    background: var(--tp-gradient);
 }
 
 /* Selection in gold, like the townsville.cc link hover. */
@@ -27822,7 +27843,7 @@ cat > /boot/config/plugins/Aurora-Theme/stats.cron <<'AURORA_THEME_EOF'
 AURORA_THEME_EOF
 /usr/bin/php /usr/local/emhttp/plugins/Aurora-Theme/scripts/schedule.php
 echo ""
-echo "Aurora-Theme 2026.11.20.2308 is installed."
+echo "Aurora-Theme 2026.11.20.2322 is installed."
 echo "Settings: Settings > User Utilities > Aurora Theme"
 echo ""
 ]]>
