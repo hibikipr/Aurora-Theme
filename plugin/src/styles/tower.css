@@ -413,6 +413,22 @@
     text-align: start !important;
 }
 
+/* Update OS > Review update: the release notes are Unraid's documentation site in an iframe, in
+   its own dark style (neutral grey, orange links and back button) that we can't restyle from
+   outside. The frame itself can be: a half-turn of hue swings the orange to saber blue, and
+   blending it with `lighten` over a navy backing tints the grey into the dialog's navy while
+   leaving the white text alone. Night only: the white palette keeps the docs as they are. */
+:root:root.Theme--black .unapi iframe {
+    filter: hue-rotate(180deg);
+    mix-blend-mode: lighten;
+}
+
+:root:root.Theme--black .unapi div:has(> iframe) {
+    background-color: #0b1330;
+    border-radius: var(--tp-r-sm, 11px);
+    overflow: hidden;
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
