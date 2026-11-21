@@ -1110,8 +1110,8 @@ table.dashboard span.outer.solid.tp-group-chip {
 }
 
 table.dashboard span.outer.solid.tp-group-chip:focus-visible {
-    outline: 2px solid var(--tp-primary, var(--brand-orange));
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary, var(--brand-orange));
+    outline-offset: 3px;
 }
 
 .tp-group-chip-icon {
@@ -1489,8 +1489,8 @@ table.dashboard span.outer.solid.tp-update > span.hand::before {
 
 .tp-app-icon[role="button"]:focus-visible {
     border-radius: 6px;
-    outline: 2px solid var(--tp-primary, var(--link-text-color));
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary, var(--link-text-color));
+    outline-offset: 3px;
 }
 
 .tp-app-more {
