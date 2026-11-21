@@ -440,6 +440,24 @@ html.tp-sidebar #menu {
     mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
 }
 
+/* Main > Array Operation: the description cell holds "Start will bring the array online." and
+   the Maintenance mode checkbox, and enhance.css makes that label inline-flex, so on Unraid
+   7.4 it sat on the same line as the sentence with no gap ("online.[ ] Maintenance mode") and
+   wrapped badly in narrower windows. As a block-level flex it takes its own line under the
+   sentence, keeping enhance.css's 0.8rem top margin. Stop's "Yes, I want to do this" row is
+   the same markup. enhance.css loads after this file, hence the :root:root. */
+:root:root .tp-ops td.tp-op-desc label {
+    display: flex;
+    width: fit-content;
+}
+
+/* Night: the native checkboxes (Maintenance mode, Reboot in safe mode, ...) were bright white
+   squares on the navy page; the dark colour scheme gives them a dark box in the theme's accent
+   when ticked. Checkboxes the theme styles itself are unaffected. */
+:root:root.Theme--black input[type="checkbox"] {
+    color-scheme: dark;
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
