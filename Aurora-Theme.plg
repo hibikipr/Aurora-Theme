@@ -3,7 +3,7 @@
 
 <PLUGIN name="Aurora-Theme"
         author="Tunefish"
-        version="2026.11.20.2217"
+        version="2026.11.20.2219"
         launch="Settings/AuroraThemeSettings"
         pluginURL="https://raw.githubusercontent.com/hibikipr/Aurora-Theme/release/Aurora-Theme.plg"
         support="https://github.com/hibikipr/Aurora-Theme/issues"
@@ -11,7 +11,7 @@
         min="7.2.0">
 
 <CHANGES>
-###2026.11.20.2217
+###2026.11.20.2219
 - Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
@@ -86,10 +86,10 @@ if [ -e /boot/config/plugins/$OLD.plg ] || [ -d /usr/local/emhttp/plugins/$OLD ]
   echo "Settings moved over from $OLD, which has been removed."
 fi
 old=$(sed -n 's/^[[:space:]]*version="\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme.plg 2>/dev/null | head -n 1)
-if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2217" ]]; then
+if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2219" ]]; then
   from=$(sed -n 's/.*"from":"\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme/updated.json 2>/dev/null)
   [[ "$from" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ ]] || from=$old
-  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2217" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
+  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2219" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
 fi
 cat > /usr/local/emhttp/plugins/Aurora-Theme/AuroraTheme.page <<'AURORA_THEME_EOF'
 Menu="Buttons"
@@ -362,7 +362,7 @@ if (in_array(rtrim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PAT
 <?php if ($auroraClasses): ?>
 <script>document.documentElement.classList.add(...<?= json_encode($auroraClasses) ?>);</script>
 <?php endif; ?>
-<?php if (substr('2026.11.20.2217', -4) === '-dev'): ?>
+<?php if (substr('2026.11.20.2219', -4) === '-dev'): ?>
 <?php // A dev build (version "...-dev", set by plugin/build.py) is installed: a "Dev" badge in the
       // top bar, linking to the settings, where the update channel goes back to stable. ?>
 <style id="aurora-dev-badge">
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var badge = document.createElement('a');
   badge.className = 'tp-dev-badge';
   badge.href = '/Settings/AuroraThemeSettings';
-  badge.title = 'Aurora Theme dev build 2026.11.20.2217: a test version, installed because the update channel is set to dev builds. Click to change it.';
+  badge.title = 'Aurora Theme dev build 2026.11.20.2219: a test version, installed because the update channel is set to dev builds. Click to change it.';
   badge.innerHTML = '<i aria-hidden="true"></i><span>Aurora</span><b>Dev</b>';
   // Where it goes: with the sidebar shown, on its own line under Unraid's version (the version
   // row has room for the version and its update notice only); otherwise in
@@ -27426,6 +27426,24 @@ html.tp-sidebar #menu {
     mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
 }
 
+/* Main > Array Operation: the description cell holds "Start will bring the array online." and
+   the Maintenance mode checkbox, and enhance.css makes that label inline-flex, so on Unraid
+   7.4 it sat on the same line as the sentence with no gap ("online.[ ] Maintenance mode") and
+   wrapped badly in narrower windows. As a block-level flex it takes its own line under the
+   sentence, keeping enhance.css's 0.8rem top margin. Stop's "Yes, I want to do this" row is
+   the same markup. enhance.css loads after this file, hence the :root:root. */
+:root:root .tp-ops td.tp-op-desc label {
+    display: flex;
+    width: fit-content;
+}
+
+/* Night: the native checkboxes (Maintenance mode, Reboot in safe mode, ...) were bright white
+   squares on the navy page; the dark colour scheme gives them a dark box in the theme's accent
+   when ticked. Checkboxes the theme styles itself are unaffected. */
+:root:root.Theme--black input[type="checkbox"] {
+    color-scheme: dark;
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
@@ -27768,7 +27786,7 @@ cat > /boot/config/plugins/Aurora-Theme/stats.cron <<'AURORA_THEME_EOF'
 AURORA_THEME_EOF
 /usr/bin/php /usr/local/emhttp/plugins/Aurora-Theme/scripts/schedule.php
 echo ""
-echo "Aurora-Theme 2026.11.20.2217 is installed."
+echo "Aurora-Theme 2026.11.20.2219 is installed."
 echo "Settings: Settings > User Utilities > Aurora Theme"
 echo ""
 ]]>
