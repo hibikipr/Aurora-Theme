@@ -391,7 +391,7 @@ body::after {
     --tp-muted: #8a93b3;
     --tp-border: rgba(255, 255, 255, 0.08);
     --tp-primary: #4cc9ff;
-    --tp-primary-ii: #4ce6d2;
+    --tp-primary-ii: #4cc9ff;
     --tp-primary-soft: rgba(76, 201, 255, 0.18);
     --tp-danger: #ff4d5e;
     --tp-danger-soft: rgba(255, 77, 94, 0.13);
@@ -411,7 +411,7 @@ body::after {
     --tp-text: #0c1230;
     --tp-muted: #586283;
     --tp-primary: #0b8fd6;
-    --tp-primary-ii: #0ea597;
+    --tp-primary-ii: #0b8fd6;
     --tp-primary-soft: rgba(11, 143, 214, 0.12);
     --tp-danger: #d92d42;
     --tp-danger-soft: rgba(217, 45, 66, 0.08);

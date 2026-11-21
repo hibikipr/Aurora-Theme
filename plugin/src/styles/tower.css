@@ -106,7 +106,11 @@
     --tp-border: #1d2754;
     --tp-input-border: #2a3772;
     --tp-primary: var(--tw-blue);
-    --tp-primary-ii: var(--tw-teal);
+    /* Teal is an app identity colour in the Townsville design system, not UI chrome: its only UI
+       job was the second stop of the primary gradient, which is gone. The second accent follows
+       the primary, so the active sidebar icon, links, the active help button and the last
+       gradient stops are all saber blue. */
+    --tp-primary-ii: var(--tp-primary);
     --tp-primary-soft: rgba(76, 201, 255, 0.14);
     --tp-tab-active: #182252;
     --tp-primary-text: #06101f;
@@ -157,7 +161,7 @@
     --tp-border: #dce1ee;
     --tp-input-border: #c9d0e3;
     --tp-primary: var(--tw-blue);
-    --tp-primary-ii: var(--tw-teal);
+    --tp-primary-ii: var(--tp-primary);
     --tp-primary-soft: rgba(11, 143, 214, 0.10);
     --tp-tab-active: #ffffff;
     --tp-primary-text: #ffffff;
@@ -244,7 +248,7 @@
     letter-spacing: 0.14em !important;
     text-transform: uppercase;
     color: #e8c36a;
-    text-shadow: 0 0 14px rgba(232, 195, 106, 0.35);
+    text-shadow: 0 0 14px rgba(232, 195, 106, 0.45);
 }
 
 /* Day: the top bar is light, so its name takes the deeper gold; the sidebar card stays dark. */
@@ -492,6 +496,23 @@ html.tp-sidebar #menu {
     margin-left: 0.2rem;
     font-size: 0.9em;
     color: var(--tp-muted, inherit);
+}
+
+/* Flat saber blue, the rest of the way. --tp-gradient is flat above, but four rules in Aurora's
+   own sheets build their blue-to-teal gradient straight from --tp-primary and --tp-primary-ii
+   instead of using it, so the variable never reached them: the Dashboard's system usage bar,
+   the underline under the top-bar menu items, the active-item marker on the sidebar's left
+   edge, and the fill bars on the Stats page. They take the variable now. The teal itself stays
+   where it is a text or icon colour. */
+:root:root:is(.Theme--black, .Theme--white) table.dashboard .usage-disk.sys > span:first-child:not(.greenbar, .orangebar, .redbar, .graybar),
+:root:root:is(.Theme--black, .Theme--white) .nav-item::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-item:hover::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-item.active::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-user.show::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-user.show:hover::after,
+:root:root:is(.Theme--black, .Theme--white) .nav-tile:not(.right) .nav-item::after,
+:root:root:is(.Theme--black, .Theme--white) .tfs-fill {
+    background: var(--tp-gradient);
 }
 
 /* Selection in gold, like the townsville.cc link hover. */
