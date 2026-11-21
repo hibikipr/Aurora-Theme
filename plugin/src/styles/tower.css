@@ -95,8 +95,8 @@
     --tw-purple: #b07cff;
     --tw-ring: rgba(120, 140, 255, 0.05);
     --tw-glow-a: rgba(76, 201, 255, 0.14);
-    --tw-glow-b: rgba(255, 77, 94, 0.07);
-    --tw-glow-c: rgba(92, 255, 122, 0.06);
+    --tw-glow-b: rgba(255, 77, 94, 0.08);
+    --tw-glow-c: rgba(92, 255, 122, 0.07);
 
     --tp-bg: #070a18;
     --tp-elevated: #0e1430;
@@ -109,7 +109,7 @@
     --tp-primary-ii: var(--tw-teal);
     --tp-primary-soft: rgba(76, 201, 255, 0.14);
     --tp-tab-active: #182252;
-    --tp-primary-text: #04101c;
+    --tp-primary-text: #06101f;
     --tp-header-bg: var(--tp-custom-header-bg, #050817);
     --tp-header-text: var(--tp-custom-header-text, #e6e9f5);
     --tp-header-muted: var(--tp-custom-header-muted, #8e9ad0);
@@ -132,7 +132,7 @@
     --tp-hsl-border: 229 49% 22%;
     --tp-hsl-input: 228 46% 31%;
     --tp-hsl-primary: 198 100% 65%;
-    --tp-hsl-primary-text: 210 75% 6%;
+    --tp-hsl-primary-text: 217 68% 7%;
 }
 
 /* ---- Day (Display Settings → White) */
@@ -188,7 +188,8 @@
     --tw-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
     --tp-font-body: "Chakra Petch", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --tp-font-heading: "Chakra Petch", "Space Grotesk", var(--tp-font-body);
-    --tp-gradient: linear-gradient(135deg, var(--tw-blue), var(--tw-teal));
+    /* Primary fills are flat saber blue across the Townsville family (buttons, bars, badges). */
+    --tp-gradient: linear-gradient(var(--tp-primary), var(--tp-primary));
     --tp-r-sm: 8px;
     --tp-r-md: 10px;
     --tw-saber: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent),
@@ -308,15 +309,15 @@
 }
 
 :root:root:is(.Theme--black, .Theme--white) :focus-visible {
-    outline: 2px solid var(--tp-primary);
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary);
+    outline-offset: 3px;
 }
 
 :root:root:is(.Theme--black, .Theme--white) a:hover {
     color: var(--tw-gold);
 }
 
-/* Usage bars by load: blue to teal, then gold, then red. Only the first span is the bar; the
+/* Usage bars by load: saber blue, then gold, then red. Only the first span is the bar; the
    second holds the figure, which stays on Aurora's plain background. */
 :root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:first-child {
     background: var(--tp-gradient);

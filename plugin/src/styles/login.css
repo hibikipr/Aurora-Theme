@@ -30,7 +30,7 @@
     --tp-primary: #4f8bff;
     --tp-primary-ii: #22d3ee;
     --tp-primary-soft: rgba(79, 139, 255, 0.18);
-    --tp-gradient: linear-gradient(135deg, var(--tp-primary), var(--tp-primary-ii));
+    --tp-gradient: linear-gradient(var(--tp-primary), var(--tp-primary));
     --tp-danger: #f87171;
     --tp-danger-soft: rgba(248, 113, 113, 0.12);
     --tp-success: #86efac;
@@ -292,7 +292,7 @@ body::after {
 
 #login .button:focus-visible,
 #login .form button:focus-visible {
-    outline: 2px solid var(--tp-primary);
+    outline: 3px solid var(--tp-primary);
     outline-offset: 3px;
 }
 
