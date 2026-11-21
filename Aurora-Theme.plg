@@ -3,7 +3,7 @@
 
 <PLUGIN name="Aurora-Theme"
         author="Tunefish"
-        version="2026.11.20.2227"
+        version="2026.11.20.2308"
         launch="Settings/AuroraThemeSettings"
         pluginURL="https://raw.githubusercontent.com/hibikipr/Aurora-Theme/release/Aurora-Theme.plg"
         support="https://github.com/hibikipr/Aurora-Theme/issues"
@@ -11,7 +11,7 @@
         min="7.2.0">
 
 <CHANGES>
-###2026.11.20.2227
+###2026.11.20.2308
 - Townsville edition: the townsville.cc palette (saber blue and teal on deep navy, a gold server name, Temple's rings) on every page and the login page, with Michroma, Chakra Petch and JetBrains Mono bundled. Updates come from hibikipr/Aurora-Theme.
 - New colours, fonts, tables, buttons, dialogs and notification panel for the Black and White themes.
 - Optional sidebar navigation layout.
@@ -86,10 +86,10 @@ if [ -e /boot/config/plugins/$OLD.plg ] || [ -d /usr/local/emhttp/plugins/$OLD ]
   echo "Settings moved over from $OLD, which has been removed."
 fi
 old=$(sed -n 's/^[[:space:]]*version="\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme.plg 2>/dev/null | head -n 1)
-if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2227" ]]; then
+if [[ "$old" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ && "$old" != "2026.11.20.2308" ]]; then
   from=$(sed -n 's/.*"from":"\([^"]*\)".*/\1/p' /boot/config/plugins/Aurora-Theme/updated.json 2>/dev/null)
   [[ "$from" =~ ^[0-9]{4}\.[0-9]{2}\.[0-9]{2}[A-Za-z0-9._-]*$ ]] || from=$old
-  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2227" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
+  printf '{"from":"%s","to":"%s","time":%s}\n' "$from" "2026.11.20.2308" "$(date +%s)" > /boot/config/plugins/Aurora-Theme/updated.json
 fi
 cat > /usr/local/emhttp/plugins/Aurora-Theme/AuroraTheme.page <<'AURORA_THEME_EOF'
 Menu="Buttons"
@@ -362,7 +362,7 @@ if (in_array(rtrim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PAT
 <?php if ($auroraClasses): ?>
 <script>document.documentElement.classList.add(...<?= json_encode($auroraClasses) ?>);</script>
 <?php endif; ?>
-<?php if (substr('2026.11.20.2227', -4) === '-dev'): ?>
+<?php if (substr('2026.11.20.2308', -4) === '-dev'): ?>
 <?php // A dev build (version "...-dev", set by plugin/build.py) is installed: a "Dev" badge in the
       // top bar, linking to the settings, where the update channel goes back to stable. ?>
 <style id="aurora-dev-badge">
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var badge = document.createElement('a');
   badge.className = 'tp-dev-badge';
   badge.href = '/Settings/AuroraThemeSettings';
-  badge.title = 'Aurora Theme dev build 2026.11.20.2227: a test version, installed because the update channel is set to dev builds. Click to change it.';
+  badge.title = 'Aurora Theme dev build 2026.11.20.2308: a test version, installed because the update channel is set to dev builds. Click to change it.';
   badge.innerHTML = '<i aria-hidden="true"></i><span>Aurora</span><b>Dev</b>';
   // Where it goes: with the sidebar shown, on its own line under Unraid's version (the version
   // row has room for the version and its update notice only); otherwise in
@@ -15550,8 +15550,8 @@ table.dashboard span.outer.solid.tp-group-chip {
 }
 
 table.dashboard span.outer.solid.tp-group-chip:focus-visible {
-    outline: 2px solid var(--tp-primary, var(--brand-orange));
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary, var(--brand-orange));
+    outline-offset: 3px;
 }
 
 .tp-group-chip-icon {
@@ -15929,8 +15929,8 @@ table.dashboard span.outer.solid.tp-update > span.hand::before {
 
 .tp-app-icon[role="button"]:focus-visible {
     border-radius: 6px;
-    outline: 2px solid var(--tp-primary, var(--link-text-color));
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary, var(--link-text-color));
+    outline-offset: 3px;
 }
 
 .tp-app-more {
@@ -19562,7 +19562,7 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/login.css <<'AURORA_THEME_EO
     --tp-primary: #4f8bff;
     --tp-primary-ii: #22d3ee;
     --tp-primary-soft: rgba(79, 139, 255, 0.18);
-    --tp-gradient: linear-gradient(135deg, var(--tp-primary), var(--tp-primary-ii));
+    --tp-gradient: linear-gradient(var(--tp-primary), var(--tp-primary));
     --tp-danger: #f87171;
     --tp-danger-soft: rgba(248, 113, 113, 0.12);
     --tp-success: #86efac;
@@ -19824,7 +19824,7 @@ body::after {
 
 #login .button:focus-visible,
 #login .form button:focus-visible {
-    outline: 2px solid var(--tp-primary);
+    outline: 3px solid var(--tp-primary);
     outline-offset: 3px;
 }
 
@@ -27081,8 +27081,8 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tw-purple: #b07cff;
     --tw-ring: rgba(120, 140, 255, 0.05);
     --tw-glow-a: rgba(76, 201, 255, 0.14);
-    --tw-glow-b: rgba(255, 77, 94, 0.07);
-    --tw-glow-c: rgba(92, 255, 122, 0.06);
+    --tw-glow-b: rgba(255, 77, 94, 0.08);
+    --tw-glow-c: rgba(92, 255, 122, 0.07);
 
     --tp-bg: #070a18;
     --tp-elevated: #0e1430;
@@ -27095,7 +27095,7 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tp-primary-ii: var(--tw-teal);
     --tp-primary-soft: rgba(76, 201, 255, 0.14);
     --tp-tab-active: #182252;
-    --tp-primary-text: #04101c;
+    --tp-primary-text: #06101f;
     --tp-header-bg: var(--tp-custom-header-bg, #050817);
     --tp-header-text: var(--tp-custom-header-text, #e6e9f5);
     --tp-header-muted: var(--tp-custom-header-muted, #8e9ad0);
@@ -27118,7 +27118,7 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tp-hsl-border: 229 49% 22%;
     --tp-hsl-input: 228 46% 31%;
     --tp-hsl-primary: 198 100% 65%;
-    --tp-hsl-primary-text: 210 75% 6%;
+    --tp-hsl-primary-text: 217 68% 7%;
 }
 
 /* ---- Day (Display Settings → White) */
@@ -27174,7 +27174,8 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
     --tw-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
     --tp-font-body: "Chakra Petch", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --tp-font-heading: "Chakra Petch", "Space Grotesk", var(--tp-font-body);
-    --tp-gradient: linear-gradient(135deg, var(--tw-blue), var(--tw-teal));
+    /* Primary fills are flat saber blue across the Townsville family (buttons, bars, badges). */
+    --tp-gradient: linear-gradient(var(--tp-primary), var(--tp-primary));
     --tp-r-sm: 8px;
     --tp-r-md: 10px;
     --tw-saber: 0 0 0 1px color-mix(in srgb, var(--tp-primary) 55%, transparent),
@@ -27294,15 +27295,15 @@ cat > /usr/local/emhttp/plugins/Aurora-Theme/styles/tower.css <<'AURORA_THEME_EO
 }
 
 :root:root:is(.Theme--black, .Theme--white) :focus-visible {
-    outline: 2px solid var(--tp-primary);
-    outline-offset: 2px;
+    outline: 3px solid var(--tp-primary);
+    outline-offset: 3px;
 }
 
 :root:root:is(.Theme--black, .Theme--white) a:hover {
     color: var(--tw-gold);
 }
 
-/* Usage bars by load: blue to teal, then gold, then red. Only the first span is the bar; the
+/* Usage bars by load: saber blue, then gold, then red. Only the first span is the bar; the
    second holds the figure, which stays on Aurora's plain background. */
 :root:root:is(.Theme--black, .Theme--white) :is(.usage-disk, .usage-bar) > span:first-child {
     background: var(--tp-gradient);
@@ -27821,7 +27822,7 @@ cat > /boot/config/plugins/Aurora-Theme/stats.cron <<'AURORA_THEME_EOF'
 AURORA_THEME_EOF
 /usr/bin/php /usr/local/emhttp/plugins/Aurora-Theme/scripts/schedule.php
 echo ""
-echo "Aurora-Theme 2026.11.20.2227 is installed."
+echo "Aurora-Theme 2026.11.20.2308 is installed."
 echo "Settings: Settings > User Utilities > Aurora Theme"
 echo ""
 ]]>
