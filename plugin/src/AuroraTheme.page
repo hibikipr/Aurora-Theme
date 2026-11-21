@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
   link.title = 'Aurora Theme on GitHub';
-  link.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>Aurora Theme by <strong>Tunefish</strong>';
+  link.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>Aurora &middot; Townsville edition<span class="tp-credit-by"> by <strong>Tunefish</strong></span>';
   footer.append(link);
 });
 </script>

@@ -458,6 +458,41 @@ html.tp-sidebar #menu {
     color-scheme: dark;
 }
 
+/* Unraid 7.4.1's operations tray (the "Update Application" toasts at the bottom right) and the
+   two scroll arrows it moves.
+   - While the tray has a task, default-base.css parks the arrows at the bottom LEFT of the
+     window (left: 12px / 40px) so they clear the tray. With the sidebar layout the bottom left
+     is the Quick Actions panel, so they landed on its icons, and on each other (34px circles
+     28px apart). Aurora keeps them in the footer at the right (right: 16px / 54px), and the
+     tray sits above the footer, so they can stay there.
+   - The tray's offset (40px up on a landscape window) is a bit less than the footer's 44px
+     height, so the footer covered the bottom of the toast. 56px clears it with a small gap.
+   Wide windows only: the narrow layout is Unraid's own. */
+:root:root .op-tray:not(:empty) ~ .move_to_end {
+    left: auto;
+    right: 16px;
+}
+
+:root:root .op-tray:not(:empty) ~ .back_to_top {
+    left: auto;
+    right: 54px;
+}
+
+@media (min-width: 768px) {
+    :root:root .op-tray {
+        bottom: 56px;
+    }
+}
+
+/* Footer credit: "Aurora · Townsville edition by Tunefish" (the badge is built in
+   AuroraTheme.page). The "by Tunefish" part is a notch smaller, with a muted "by" and the
+   author's name in the credit's own accent, so Aurora's author stays visible. */
+:root:root .tp-credit .tp-credit-by {
+    margin-left: 0.2rem;
+    font-size: 0.9em;
+    color: var(--tp-muted, inherit);
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
