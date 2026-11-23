@@ -439,8 +439,9 @@
    has 120px of top padding to clear the logo only while it sits at the top). Scrolled, the
    "Tower" card and the first menu items slid up under the logo and printed through the version.
    Fading the menu out before it reaches the logo area keeps it clear at any scroll position,
-   and leaves the menu at the top untouched. */
-html.tp-sidebar #menu {
+   and leaves the menu at the top untouched. Only while the menu is the sidebar: below 1024px
+   (an iPad mini upright) the stock top bar is used, and the mask hid all of it (tp-topbar). */
+html.tp-sidebar:not(.tp-topbar) #menu {
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
     mask-image: linear-gradient(to bottom, transparent 0, transparent 108px, #000 126px);
 }
