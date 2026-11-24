@@ -516,6 +516,21 @@ html.tp-sidebar:not(.tp-topbar) #menu {
     background: var(--tp-gradient);
 }
 
+/* Notices across the top of the page ("Action Centre Enabled", update notes, errors).
+   default-base.css fixes them to the top centre of the WINDOW (top: 1rem; left: 50%; up to 100ch
+   wide), which is over the header. With the sidebar layout the header's content sits in the
+   column right of the sidebar, so the notice landed on the breadcrumb, the "Array Started" pill
+   and the uptime / licence pill, and its border ran through them. Here it sits just below the
+   65px header, centred over the page content (not the window), and no wider than that column.
+   Sidebar layout on wide windows only; the bar layouts keep Unraid's placement. */
+html.tp-sidebar:not(.tp-topbar) .upgrade_notice,
+html.tp-sidebar:not(.tp-topbar) .ca_element_notice {
+    top: 7.4rem;
+    left: calc(50% + var(--tp-sidebar-width, 22rem) / 2);
+    width: calc(100% - var(--tp-sidebar-width, 22rem) - 4rem);
+    max-width: 80ch;
+}
+
 /* Selection in gold, like the townsville.cc link hover. */
 :root:root:is(.Theme--black, .Theme--white) ::selection {
     color: #070a18;
